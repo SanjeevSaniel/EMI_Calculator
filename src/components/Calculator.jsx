@@ -42,13 +42,13 @@ const Calculator = () => {
     return emiDetails;
   }
 
-  const saveData = (data) => {
-    setCalculationsHistory((prev) => [...prev, data]);
-    localStorage.setItem(
-      "Calculations_History",
-      JSON.stringify(calculationsHistory)
-    );
-  };
+  //   const saveData = (data) => {
+  //     setCalculationsHistory((prev) => [...prev, data]);
+  //     localStorage.setItem(
+  //       "Calculations_History",
+  //       JSON.stringify(calculationsHistory)
+  //     );
+  //   };
 
   const onFormSubmit = (e) => {
     e.preventDefault();
