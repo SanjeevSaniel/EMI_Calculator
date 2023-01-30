@@ -63,9 +63,6 @@ const Calculator = () => {
       "Installments:",
       calculateMonthlyInterest(principalAmount, interestRate, months, emi)
     );
-    // saveData(
-    // //   calculateMonthlyInterest(principalAmount, interestRate, months, emi)
-    // );
 
     setCalculationsHistory((prev) => [
       ...prev,
