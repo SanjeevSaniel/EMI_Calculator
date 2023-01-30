@@ -95,6 +95,7 @@ const Calculator = () => {
               id=""
               min={0}
               step="1"
+              required
               onChange={(e) => setPrincipalAmount(e.target.value)}
             />
           </div>
@@ -106,6 +107,7 @@ const Calculator = () => {
               id=""
               min={0}
               step="0.01"
+              required
               onChange={(e) => setInterestRate(e.target.value / 1200)}
             />
           </div>
@@ -117,6 +119,7 @@ const Calculator = () => {
               id=""
               min={0}
               step="1"
+              required
               onChange={(e) => setMonths(e.target.value)}
             />
           </div>
