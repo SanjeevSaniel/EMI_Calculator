@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Calculator.css";
 
 const Calculator = () => {
-  const [calculationsHistory, setCalculationsHistory] = useState([]);
-
   const [principalAmount, setPrincipalAmount] = useState(0);
   const [interestRate, setInterestRate] = useState(0.0);
   const [months, setMonths] = useState(0);
@@ -11,6 +9,7 @@ const Calculator = () => {
   const [emi, setEmi] = useState(0);
 
   const [installments, setInstallments] = useState([]);
+  const [calculationsHistory, setCalculationsHistory] = useState([]);
 
   function calculateMonthlyInterest(principal, interestRate, months, emi) {
     //TODO: EMI
@@ -64,15 +63,25 @@ const Calculator = () => {
       calculateMonthlyInterest(principalAmount, interestRate, months, emi)
     );
 
-    setCalculationsHistory((prev) => [
-      ...prev,
+    setCalculationsHistory((current) => [
+      ...current,
       calculateMonthlyInterest(principalAmount, interestRate, months, emi),
     ]);
+  };
+
+  useEffect(() => {
+    const oldData = JSON.parse(localStorage.getItem("Calculations_History"));
+    if (oldData) {
+      setCalculationsHistory(oldData);
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem(
       "Calculations_History",
       JSON.stringify(calculationsHistory)
     );
-  };
+  }, [calculationsHistory]);
 
   return (
     <div>
