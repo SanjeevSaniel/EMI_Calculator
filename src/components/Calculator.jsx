@@ -29,7 +29,7 @@ const Calculator = () => {
       if (principal !== 0) {
         emiDetails.push({
           principalPaid,
-          interest: Math.floor(interest),
+          interest: ~~interest,
           emi,
           balance: balance,
         });
